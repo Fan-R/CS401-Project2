@@ -2,6 +2,10 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import pickle
+from datetime import date
+
+today = date.today()
+print("Today's date:", today)
 
 # load the training and test dataset
 df_train = pd.read_csv('training.csv',sep = ';')

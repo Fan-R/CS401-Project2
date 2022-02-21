@@ -12,8 +12,6 @@
     <p>
         <form action="{{ url_for('predict')}}"method="POST">
             <input type="text" name="text" placeholder="text" required="required" />
-            <!-- <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
-		    <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /> -->
             <button type="submit"> submit</button>
         </form>
         {{ prediction_text }}
