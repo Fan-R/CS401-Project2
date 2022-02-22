@@ -4,7 +4,10 @@ from flask import Flask, request, jsonify, render_template,url_for
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
+    date = pickle.load(f)
+
 tf_transformer = pickle.load(open('tfidf1.pkl','rb'))
 
 @app.route('/api/american',methods=['POST'])
@@ -17,9 +20,9 @@ def predict():
 
     prediction = model.predict(feature_vect)[0]
     version = "1.0"
-    model_date = "XXX"
+    # model_date = "XXX"
 
-    return jsonify({"is_american ":int(prediction),"version":version,"model_date":model_date})
+    return jsonify({"is_american ":int(prediction),"version":version,"model_date":date})
 
 if __name__ == "__main__":
     app.run(debug=True)

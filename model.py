@@ -2,9 +2,9 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import pickle
-from datetime import date
+from datetime import datetime
 
-today = date.today()
+today = datetime.now()
 print("Today's date:", today)
 
 # load the training and test dataset
@@ -40,5 +40,7 @@ print("train acc is {}".format(clf.score(X_train,y_train)))
 print("test acc is {}".format(clf.score(X_test,y_test)))
 
 # save the model
-pickle.dump(clf, open('model.pkl','wb'))
+with open('model.pkl','wb') as f:
+    pickle.dump(clf, f)
+    pickle.dump(today,f)
 
