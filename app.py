@@ -1,9 +1,10 @@
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-from flask import Flask, request, jsonify, render_template,url_for
+from flask import Flask, request, jsonify
 import pickle
 
 app = Flask(__name__)
+
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
     date = pickle.load(f)
