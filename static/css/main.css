@@ -1,5 +1,6 @@
 body{
-    margin:auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
+    text-align: center;
+    padding-top: 100px; 
 }

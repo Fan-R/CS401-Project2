@@ -5,16 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
-    <title>Model Deployment</title>
+    <title>Twitter Predictor</title>
 </head>
 <body>
-    <h1>Is the author of the twitter is from USA?</h1>
+    <h1>Is the author of the twitter from USA?</h1>
+
     <p>
-        <form action="{{ url_for('predict')}}"method="POST">
-            <input type="text" name="text" placeholder="text" required="required" />
+        <form action="{{ url_for('html_predict')}}"method="POST">
+            <input type="text" name="text" placeholder="twitter text" required="required" />
             <button type="submit"> submit</button>
         </form>
-        {{ prediction_text }}
+        <br />
+        <br />
+        <br />
+        {{ prediction }} <br>
+        <br>
+        {{ version }} <br>
+        <br>
+        {{ date }}
     </p>
 </body>
 </html>
