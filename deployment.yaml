@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: american-predictor
-        image: quay.io/lory_fan/american-predictor:0.3
+        image: quay.io/lory_fan/american-predictor:latest
         ports:
         - containerPort: 5002

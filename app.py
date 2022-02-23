@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify,render_template,url_for
 import pickle
 
 app = Flask(__name__)
-version = "3.0"
+version = "4.0"
 
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
@@ -22,7 +22,7 @@ def predict():
     tfidf = TfidfVectorizer(stop_words = "english",vocabulary = tf_transformer.vocabulary_)
 
     data = request.get_json(force=True)
-    feature = list(data['text'])
+    feature = [data['text']]
     feature_vect = tfidf.fit_transform(feature)
 
     prediction = model.predict(feature_vect)[0]
@@ -33,7 +33,7 @@ def predict():
 @app.route('/api/american/html',methods=['POST'])
 def html_predict():
     tfidf = TfidfVectorizer(stop_words = "english",vocabulary = tf_transformer.vocabulary_)
-    feature = list(request.form['text'])
+    feature = [request.form['text']]
     feature_vect = tfidf.fit_transform(feature)
     prediction = model.predict(feature_vect)[0]
 
