@@ -1,0 +1,12 @@
+project: rf96-project
+source:
+  repoURL: 'https://github.com/Fan-R/CS401-Project2.git'
+  path: .
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: rf96
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true

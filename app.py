@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify,render_template,url_for
 import pickle
 
 app = Flask(__name__)
-version = "4.0"
+version = "4.1"
 
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
